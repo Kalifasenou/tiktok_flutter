@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_flutter/constants.dart';
 import 'package:tiktok_flutter/vues/widgets/text_input.dart';
 
-//Creation de la page de connexion
-class ConnexionPage extends StatelessWidget {
-  ConnexionPage({super.key});
+class InscriptionPage extends StatelessWidget {
+  InscriptionPage({super.key});
 
   //Variable de verification de mail
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _pseudoController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +31,55 @@ class ConnexionPage extends StatelessWidget {
               ),
             ),
             const Text(
-              'Connexion',
+              'Inscription',
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w700,
               ),
             ),
+
+            //Ajouter une image
             const SizedBox(
               height: 25,
             ),
+            Stack(
+              children: [
+                const CircleAvatar(
+                  radius: 64,
+                  backgroundImage: NetworkImage(
+                      'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
+                  backgroundColor: Colors.black,
+                ),
+                Positioned(
+                  bottom: -10,
+                  left: 80,
+                  child: IconButton(
+                      onPressed: () {
+                        print('Choisir une image');
+                      },
+                      icon: const Icon(
+                        Icons.add_a_photo,
+                      )),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Container(
+              //dimensionnement du conteneur mail
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: InputTextFild(
+                controller: _pseudoController,
+                labelText: 'Pseudo',
+                icon: Icons.person,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+
             Container(
               //dimensionnement du conteneur mail
               width: MediaQuery.of(context).size.width,
@@ -77,11 +117,11 @@ class ConnexionPage extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  print('Coonecter avec succés');
+                  print('Inscrit avec succés');
                 },
                 child: const Center(
                   child: Text(
-                    'Connexion',
+                    'Se connecter',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w700,
@@ -97,7 +137,7 @@ class ConnexionPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'N\' avez-vous pas de compte ?',
+                  'Avez-vous déjâ un compte ?',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -107,7 +147,7 @@ class ConnexionPage extends StatelessWidget {
                     print('navigating user');
                   },
                   child: Text(
-                    'S\'inscrire',
+                    'Se connecter',
                     style: TextStyle(
                       fontSize: 20,
                       color: buttonColor,

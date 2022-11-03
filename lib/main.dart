@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_flutter/constants.dart';
+import 'package:tiktok_flutter/vues/pages/acceuill.dart';
 import 'package:tiktok_flutter/vues/pages/autho/ecran_connexion.dart';
+import 'package:tiktok_flutter/vues/pages/autho/inscription.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: backgroundColor,
       ),
       //Appelation des differentes pages
-      home: const ConnexionPage(),
+      home: PageAcceuill(),
     );
   }
 }
