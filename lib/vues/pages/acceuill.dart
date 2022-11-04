@@ -49,11 +49,11 @@ class _PageAcceuillState extends State<PageAcceuill> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person, size: 30),
-            label: 'Profile',
+            label: 'Profils',
           ),
         ],
       ),
-      body: Center(child: Text('Page d\'Acceuill')),
+      body: pages[pageIdx],
     );
   }
 }
